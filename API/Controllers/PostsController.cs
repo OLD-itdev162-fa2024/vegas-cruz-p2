@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Tasks;
 using Domain;
 using Microsoft.AspNetCore.Mvc;
@@ -71,6 +72,33 @@ namespace API.Controllers
             }
 
             throw new Exception("Errors creating post");
+        }
+
+        /// <summary>
+        /// PUT api/post
+        /// </summary>
+        /// <param name="request">JSON request containing one or ore updated post fields</param>
+        /// <returns>An updated post</returns>
+        [HttpPut(Name = "Update")]
+
+        public ActionResult<Post> Update([FromBody]Post request){
+            var post = context.Posts.Find(request.Id);
+            if(post == null){
+                throw new Exception("Could not find post");
+            }
+
+            //Update the post properties with request values, if present.
+            post.Title = request.Title != null ? request.Title : post.Title;
+            post.Body = request.Body != null ? request.Body : post.Body;
+            post.Date = request.Date != DateTime.MinValue ? request.Date : post.Date;
+
+            var success = context.SaveChanges() > 0;
+            if(success){
+                return Ok(post);
+            }
+
+            throw new Exception("Error updating post");
+
         }
     }
 }
