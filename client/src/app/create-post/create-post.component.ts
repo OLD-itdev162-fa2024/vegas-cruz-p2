@@ -22,7 +22,7 @@ export class CreatePostComponent implements OnInit {
 
   createPost(){
     this.model.date = new Date();
-    this.http.post('http://localhost:4200/api/posts', this.model).subscribe(
+    this.http.post('http://localhost:5181/api/posts', this.model).subscribe(
       response => {this.home()},
       error => {console.log(error)}
     );
@@ -33,7 +33,7 @@ export class CreatePostComponent implements OnInit {
   }
 
   home(){
-    this.route.navigate("/");
+    this.route.navigate(["/"]);
   }
 
 }
