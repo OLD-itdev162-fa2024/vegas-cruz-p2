@@ -8,18 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AppComponent implements OnInit{
-  title = 'client';
-  posts: any;
+  title = 'BlogBox';
 
-  constructor(private http: HttpClient) {
+  constructor() {
 
     
   }
   ngOnInit(): void{
-    this.http.get('http://localhost:5181/api/posts').subscribe(
-      response => {this.posts = response;},
-      error => {console.log(error)}
-    );
+
   }
 }
 1
