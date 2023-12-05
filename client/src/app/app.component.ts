@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 
 export class AppComponent implements OnInit{
-  title = 'BlogBox';
+  title = 'Find yourself a Beach Doubles Partner';
 
   constructor() {
 

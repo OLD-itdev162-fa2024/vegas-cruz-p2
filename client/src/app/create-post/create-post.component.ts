@@ -36,4 +36,8 @@ export class CreatePostComponent implements OnInit {
     this.route.navigate(["/"]);
   }
 
+  csvInputChange(fileInputEvent: any) {
+    console.log(fileInputEvent.target.files[0]);
+  }
+
 }

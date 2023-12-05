@@ -1,11 +1,42 @@
 <form #createPostForm="ngForm" (ngSubmit)="createPost()" class="post-form">
-<mat-form-field appearance="fill" class="form-field">
-    <mat-label>Title</mat-label>
-    <input matInput name="title" [(ngModel)]="model.title" placeholder="Title" >
+    <h1>Post</h1>
+    <mat-form-field appearance="fill" class="form-field">
+    <mat-label>Name</mat-label>
+    <input matInput name="Name" [(ngModel)]="model.title" placeholder="Name" >
 </mat-form-field>
 <mat-form-field appearance="fill" class="form-field">
-    <mat-label>Body</mat-label>
-    <textarea matInput name="body" [(ngModel)]="model.body" placeholder="Body"></textarea>
+    <mat-label>Player summary</mat-label>
+    <textarea matInput name="PlayerSummary" [(ngModel)]="model.body" placeholder="Player Summary"></textarea>
+</mat-form-field>
+<mat-form-field appearance="fill" class="form-field">
+    <mat-label>City</mat-label>
+    <textarea matInput name="City" [(ngModel)]="model.body" placeholder="City"></textarea>
+</mat-form-field>
+<mat-form-field appearance="fill" class="form-field">
+    <mat-label>State</mat-label>
+    <textarea matInput name="State" [(ngModel)]="model.body" placeholder="State"></textarea>
+</mat-form-field>
+<mat-form-field>
+    <mat-label>Level</mat-label>
+    <mat-select>
+      <mat-option value="PRO">PRO</mat-option>
+      <mat-option value="OPEN">OPEN</mat-option>
+      <mat-option value="AA">AA</mat-option>
+      <mat-option value="A">A</mat-option>
+      <mat-option value="BB">BB</mat-option>
+      <mat-option value="B">B</mat-option>
+    </mat-select>
+  </mat-form-field>
+<input #csvInput hidden="true" type="file" onclick="this.value=null" (change)="csvInputChange($event)" accept=".csv"/>
+<button mat-flat-button color="primary" (click)="csvInput.click()">Attach an Image</button>
+<h2>Contact Info</h2>
+<mat-form-field appearance="fill" class="form-field">
+    <mat-label>Phone Number</mat-label>
+    <textarea matInput name="PhoneNumber" [(ngModel)]="model.body" placeholder="Phone Number"></textarea>
+</mat-form-field>
+<mat-form-field appearance="fill" class="form-field">
+    <mat-label>Email</mat-label>
+    <textarea matInput name="Email" [(ngModel)]="model.body" placeholder="Email"></textarea>
 </mat-form-field>
 <div class="form-field">
     <button mat-raised-button color="primary" type="submit" class="form-button">Create Post</button>
